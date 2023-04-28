@@ -11,6 +11,8 @@
 		       alert("toggle_visibility");
 		    }
 	</script>
+
+    
     {{-- with('post', $post)->with('auth', $auth) --}}
 
     <div class="col-md-12">

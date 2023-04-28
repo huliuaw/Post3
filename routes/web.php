@@ -15,6 +15,9 @@ Route::get('/', [PostController::class, 'index']);
 Route::resource('posts',  PostController::class);
 
 Route::get('loginplz', 	[App\Http\Controllers\HomeController::class,'loginplz']);
+Route::get('search', ['as' => 'search', 'uses' => 'App\Http\Controllers\PostController@searchinput']);
+ 
+
 
 //Comments
 Route::post('comments/{post_id}', ['uses' => 'App\Http\Controllers\CommentsController@store', 'as' => 'comments.store' ]);

@@ -154,4 +154,14 @@ class PostController extends Controller
         Session::flash('success', 'The post was deleted');
         return redirect()->route('posts.index');
     }
+    public function searchinput(Request $request){ 
+        $search = $request->search;
+        $posts = Post::select()->where('body', 'LIKE', '%'.$search.'%')->orderBy('id', 'desc')->get();
+        //select * from `POSTS` where body = '%검색어%' order by id desc
+        if(count($posts)==0){
+            return '검색한 데이터에 대한 정보가 없습니다';
+        } else {
+            return view('posts.result')->with('posts', $posts);
+        }    
+    }
 }

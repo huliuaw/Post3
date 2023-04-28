@@ -6,7 +6,13 @@
   </head>
 
   <body>
+    {{-- 검색--}}
 
+    <form action="{{ route('search') }}" method="get" class="navbar-form navbar-left">
+        <input type="text" name="search" class="form-control" required maxlength="200">&nbsp
+        <input type="submit" value="전송" class="btn btn-primary openbutton">
+    </form><br>
+{{-- 세션'success' --}}
     <div class="container">
       
         @if (Session::has('success'))
