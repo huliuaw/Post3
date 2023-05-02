@@ -164,4 +164,22 @@ class PostController extends Controller
             return view('posts.result')->with('posts', $posts);
         }    
     }
+    //프사, 프사 업데이트
+    public function avatar()
+    {
+        return view('auth.avatar', array('user' => Auth::user()));
+    }
+
+    public function update_avatar(Request $request){
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time().'.'.$avatar->getClientOriginalExtension();  
+            $location = public_path('avatars/'.$filename);
+            Image::make($avatar)->resize(300, 300)->save($location);
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+        return redirect('avatar');
+    }
 }

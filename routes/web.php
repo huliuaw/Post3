@@ -16,8 +16,6 @@ Route::resource('posts',  PostController::class);
 
 Route::get('loginplz', 	[App\Http\Controllers\HomeController::class,'loginplz']);
 Route::get('search', ['as' => 'search', 'uses' => 'App\Http\Controllers\PostController@searchinput']);
- 
-
 
 //Comments
 Route::post('comments/{post_id}', ['uses' => 'App\Http\Controllers\CommentsController@store', 'as' => 'comments.store' ]);
@@ -25,3 +23,7 @@ Route::get('comments/{id}/edit', ['uses' => 'App\Http\Controllers\CommentsContro
 Route::put('comments/{id}', ['uses' => 'App\Http\Controllers\CommentsController@update', 'as' => 'comments.update']);
 Route::get('comments/{id}/delete', ['uses' => 'App\Http\Controllers\CommentsController@delete', 'as' => 'comments.delete']);
 Route::delete('comments/{id}', ['uses' => 'App\Http\Controllers\CommentsController@destroy', 'as' => 'comments.destroy']);
+
+//프사
+Route::get('avatar', [PostController::class,'avatar']);
+Route::post('profile', [PostController::class,'update_avatar']);

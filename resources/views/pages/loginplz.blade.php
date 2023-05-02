@@ -13,9 +13,9 @@
                 <hr>
                 <div class="lead" style="text-align: center">
                      <br><br><br>
-                    You need login to use this service.
+                   <a href="login">로그인</a>
                     <br><br><br> 
-                    <img src="photo/1.png" alt="">  
+       
                     <img src="{{url('/images/1.jpg')}}" alt="Image"/>
                     {{-- <img src="{{ asset('/images/2.jpg') }}">  --}}
                 </div>
