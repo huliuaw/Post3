@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\TaskController;
 
 
 Auth::routes();
@@ -27,3 +27,13 @@ Route::delete('comments/{id}', ['uses' => 'App\Http\Controllers\CommentsControll
 //프사
 Route::get('avatar', [PostController::class,'avatar']);
 Route::post('profile', [PostController::class,'update_avatar']);
+
+//Task
+Route::resource('tasks', TaskController::class);
+/* GET|HEAD tasks | tasks.index 
+   GET|HEAD tasks/{task}/edit | tasks.edit 
+   GET tasks/create
+   PUT|PATCH tasks/{task} |tasks.update
+   GET|PATCH tasks/{task} |tasks.show
+   DELETE|PATCH tasks/{task} |tasks.destroy
+*/

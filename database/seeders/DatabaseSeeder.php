@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('id_ID');
+        $faker = Faker::create();
 
         for ($i=0; $i < 50; $i++) { 
             
-                   DB::table('posts')->insert([
+            DB::table('posts')->insert([
                 
                 'title' => $faker->jobTitle,
                 //'age' => $faker->numberBetween(17, 40),
